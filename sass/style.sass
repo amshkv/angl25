@@ -72,6 +72,7 @@ $sub-fonts: Gilroy, sans-serif;
     border-radius: 10px;
     padding-top: 59px
     padding-bottom: 60px
+    z-index: 1
     &-subtitle
       font-weight: 800
       letter-spacing: 1.5px
@@ -203,10 +204,8 @@ $sub-fonts: Gilroy, sans-serif;
     clip: rect(0 0 0 0);
     overflow: hidden;
     left: 12px;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    top: 100%;
+    
 
     &:checked + .form__label-text:after
       opacity: 1
@@ -255,6 +254,7 @@ $sub-fonts: Gilroy, sans-serif;
     top: -342px
     background: url('../img/triangle.svg') right bottom no-repeat
     z-index: -1
+    pointer-events: none
 
 .second-title
   font-family: $sub-fonts
@@ -276,8 +276,9 @@ $sub-fonts: Gilroy, sans-serif;
     @include wrapper
 
   &__list
-    padding-top: 13px
+    padding-top: 35px
     padding-left: 0
+    margin-top: 0
     list-style: none
     display: flex
     justify-content: center
@@ -302,6 +303,7 @@ $sub-fonts: Gilroy, sans-serif;
     padding-left: 10px
     padding-right: 10px
     box-sizing: border-box
+    min-width: 290px;
     &:before
       content: ''
       @include size(85px)
@@ -388,6 +390,7 @@ $sub-fonts: Gilroy, sans-serif;
       margin-top: 14px
 
 .whom
+  overflow: hidden
   padding-top: 90px
   padding-bottom: 180px
   &__inner
@@ -442,9 +445,10 @@ $sub-fonts: Gilroy, sans-serif;
     margin-bottom: 4px
 
   &__list
+    margin-top: 0
     padding-left: 0
     padding-right: 0
-    padding-top: 58px
+    padding-top: 76px
     margin-bottom: 0
     list-style: none
     display: flex
@@ -489,11 +493,12 @@ $sub-fonts: Gilroy, sans-serif;
 
 .speaker
   background-color: #2e3750;
+  overflow: hidden
 
   &__inner
     @include wrapper
     padding-top: 92px
-    padding-bottom: 123px
+    padding-bottom: 141px
     position: relative
 
     &:before
@@ -555,6 +560,7 @@ $sub-fonts: Gilroy, sans-serif;
         list-style: none;
         padding: 0
         margin-top: 22px
+        margin-bottom: 0
         font-size: 18px;
         font-weight: 400;
         line-height: 24px;
@@ -574,6 +580,7 @@ $sub-fonts: Gilroy, sans-serif;
           background: url('../img/check.png') center no-repeat
 
 .develop
+  overflow: hidden
   &__wrapper
     @include wrapper
     display: flex
@@ -584,6 +591,8 @@ $sub-fonts: Gilroy, sans-serif;
     max-width: 600px;
     margin-left: auto
     width: 100%
+    position: relative
+    z-index: 1
   &__title
     text-align: left
   &__subtitle
@@ -641,6 +650,8 @@ $sub-fonts: Gilroy, sans-serif;
       width: 100%
       padding-top: 48px
       padding-bottom: 44px
+      position: relative
+      z-index: 1
 
     &-subtitle
       color: white;
@@ -662,6 +673,7 @@ $sub-fonts: Gilroy, sans-serif;
   padding-top: 75px
   padding-bottom: 50px
   position: relative
+  overflow: hidden
 
   &:before
     content: '';
@@ -697,7 +709,6 @@ $sub-fonts: Gilroy, sans-serif;
     position: relative
     z-index: 1
     @include bg(mac, png)
-    background-size: contain
     margin-top: 66px
     padding-top: 77px
     padding-bottom: 126px
@@ -719,3 +730,288 @@ $sub-fonts: Gilroy, sans-serif;
 
     &-inner
       margin-top: 41px
+
+
+@media screen and (max-width: 1000px)  
+  .speaker
+    &__inner
+      max-width: 550px
+      padding-top: 46px
+      padding-bottom: 53px
+      &:before
+        display: none
+
+    &__video
+      &-wrapper
+        margin-top: 39px
+        flex-wrap: wrap
+        justify-content: center
+      &-inner
+        width: 100%
+        margin-right: 0
+        padding-left: 5px
+        padding-right: 5px
+        box-sizing: border-box
+      &-info
+        width: 100%
+        margin-top: 45px
+        box-sizing: border-box
+        &-name
+          font-size: 24px
+          padding-left: 37px
+        &-position
+          padding-left: 37px
+          font-size: 16px
+          line-height: 21px
+          margin-top: 9px
+        &-list
+          padding-left: 37px
+          font-size: 16px
+          line-height: 21px
+          margin-top: 27px
+      &-title
+        font-size: 18px;
+        line-height: 24px;
+        text-align: center
+      &-container
+        margin-top: 21px
+        height: 210px
+        background-size: cover
+
+  .develop
+    &__web
+      &-wrapper
+        &:before
+          left: -120px
+@media screen and (max-width: 850px)
+  .first-section
+    padding-top: 92px
+    padding-bottom: 0
+    background: url('../img/first-bg-mobile.png') top center no-repeat;
+    background-size: contain
+    &__inner
+      flex-wrap: wrap;
+    &__form
+      margin-top: 76px
+      padding-top: 24px
+      padding-bottom: 24px
+      position: relative
+      margin-left: auto
+      margin-right: auto
+
+      &:before
+        content: ''
+        left: -15px
+        top: 0
+        height: 100%
+        border-radius: 0
+        width: calc(100% + 30px)
+        background-color: #2e3750
+        position: absolute
+        z-index: -1
+
+      &-subtitle
+        font-size: 18px
+        letter-spacing: 1px
+      &-title
+        font-size: 36px;
+        line-height: 36px;
+        margin-top: 12px
+      &-text
+        font-size: 16px
+        margin-top: 18px
+      &-strong
+        font-size: 18px
+        margin-top: 5px
+  .main-title
+    margin-top: 0
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center
+    padding-left: 20px
+    padding-right: 20px
+
+    &:before
+      right: 0
+      top: -385px
+
+  .form
+    &__wrapper
+      padding-left: 6px
+      padding-right: 6px
+      box-sizing: border-box
+      margin-top: 24px
+    &__submit
+      height: 60px
+      font-size: 24px;
+      line-height: 60px
+      margin-top: 19px
+
+  .second-title
+    font-size: 30px;
+    line-height: 36px;
+
+  .usefull
+    padding-top: 36px
+
+    &__list
+      margin-top: 0
+      padding-top: 0
+    &__item
+      margin-top: 42px
+      padding-top: 105px
+
+  .time
+    margin-top: 62px
+    padding-top: 45px
+    padding-bottom: 39px
+
+    &__wrapper
+      margin-top: 37px
+      flex-wrap: wrap
+
+    &__day
+      width: 100%
+      display: flex
+      flex-direction: column
+      align-items: center
+    
+    &__item
+      margin-left: 5px
+      margin-right: 5px
+      &-text
+        margin-top: 13px
+
+    &__when 
+      margin-top: 19px
+      .time__item-number
+        @include size(80px, 83px)
+        font-size: 100px
+        line-height: 1
+      .time__item-text
+        margin-top: 5px
+  .whom
+    padding-top: 55px
+    padding-bottom: 13px
+
+    &__list
+      margin-top: 37px
+      flex-wrap: wrap;
+    &__item
+      min-width: 280px
+      margin-bottom: 48px
+
+  .place
+    padding-top: 46px
+    padding-bottom: 14px
+    .db
+      margin-bottom: 0
+    
+    &__list
+      padding-top: 45px
+      padding-left: 12px
+      padding-right: 12px
+      justify-content: center
+
+    &__item
+      width: calc(50% - 20px)
+      min-width: 85px
+      max-width: 200px;
+      font-size: 18px
+      padding-top: 88px
+      margin-bottom: 24px
+
+      &:before
+        @include size(85px)
+        background-size: 85px
+
+  
+
+  .develop
+    &__wrapper
+      padding-top: 45px
+    &__inner
+      margin-right: auto
+      max-width: 420px
+    &__title
+      text-align: center
+    &__subtitle
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 21px;
+      text-align: center
+      margin-top: 8px
+      letter-spacing: -0.5px
+    &__list
+      margin-top: 25px
+    &__item
+      font-size: 16px;
+      line-height: 21px;
+      padding-left: 37px
+      &:before
+        left: 5px;
+        top: 4px;
+    &__web
+      margin-top: 34px
+      &-wrapper
+        &:before
+          display: none
+      &-inner
+        padding-top: 37px
+        padding-bottom: 34px
+        text-align: center
+        margin-right: auto
+        max-width: 420px
+      &-subtitle
+        font-size: 16px
+      &-title
+        font-size: 30px;
+        line-height: 36px;
+        margin-top: 8px
+
+  .bonus-form
+    padding-top: 37px
+    padding-bottom: 0
+    background: #f5f6f5;
+
+    &__title-color
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 21px;
+      margin-top: 15px
+
+    &__wrapper
+      background: #2e3750;
+      margin-top: 30px
+      padding-top: 22px
+      padding-bottom: 45px
+
+    &:before
+      display: none
+
+    &__inner:after
+      display: none
+    
+    &__form
+      padding-left: 20px
+      padding-right: 20px
+      &-title
+        font-size: 36px;
+      &-inner
+        margin-top: 13px
+
+  .form
+    &__input
+      &-wrapper--medium
+        flex-wrap: wrap
+      &--medium
+        width: 100%
+        & + & 
+          margin-top: 20px
+    &__label
+      margin-top: 18px
+      &-text
+        font-size: 16px
+        line-height: 21px
+    &__submit--large
+      margin-top: 26px
