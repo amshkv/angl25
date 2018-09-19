@@ -1445,4 +1445,10 @@
   }
 }
 
+@supports (-webkit-overflow-scrolling: touch) {
+  .time__item-number {
+    display: block;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
