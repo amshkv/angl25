@@ -1,0 +1,721 @@
+@mixin size($width, $height: $width)
+  width: $width
+  height: $height
+
+@mixin bgcl($url, $ext)
+  background-image: url('../img/' + $url + '.' + $ext );
+  background-image: image-set(url('../img/' + $url + '.' + $ext) 1x, url('../img/' + $url+ '@2x.' + $ext) 2x, url('../img/' + $url + '@3x.' + $ext) 3x);
+
+@mixin bg($url, $ext)
+  background: url('../img/' + $url + '.' + $ext ) center no-repeat;
+  background: image-set(url('../img/' + $url + '.' + $ext) 1x, url('../img/' + $url+ '@2x.' + $ext) 2x, url('../img/' + $url + '@3x.' + $ext) 3x) center no-repeat;
+
+@mixin trans($trans)
+  transition: $trans .3s ease-in-out
+
+@mixin placeholder
+  &::-webkit-input-placeholder 
+    @content
+  &:-moz-placeholder           
+    @content
+  &::-moz-placeholder          
+    @content
+  &:-ms-input-placeholder      
+    @content
+
+  
+@mixin wrapper()
+  margin-left: auto
+  margin-right: auto
+  max-width: 1200px;
+  width: 100%;
+  padding-left: 15px
+  padding-right: 15px
+  box-sizing: border-box
+
+@import fonts
+
+$main-fonts : ProximaNova, sans-serif;
+$sub-fonts: Gilroy, sans-serif;
+  
+.body
+  margin: 0
+  padding: 0
+  font-family: $main-fonts
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: auto;
+  font-size: 18px
+  line-height: 1.2
+
+.dib  
+  display: inline-block
+
+.db
+  display: block
+  
+.first-section
+  @include bg(first-bg, jpg)
+  background-size: cover;
+  background-color: #efefef;
+  padding-top: 84px
+  padding-bottom: 76px
+  overflow: hidden
+  &__inner
+    @include wrapper
+    display: flex
+    justify-content: space-between
+
+  &__form
+    width: 100%
+    max-width: 470px;
+    background-color: #2e3750;
+    border-radius: 10px;
+    padding-top: 59px
+    padding-bottom: 60px
+    &-subtitle
+      font-weight: 800
+      letter-spacing: 1.5px
+      color: white;
+      font-size: 30px;
+      line-height: 36px;
+      text-align: center
+    &-title
+      color: white;
+      font-family: PFDinTextCompPro;
+      font-size: 60px;
+      font-weight: 300;
+      line-height: 60px;
+      text-transform: uppercase;
+      text-align: center
+      margin-top: 16px
+      margin-bottom: 0
+    &-text
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 24px;
+      color: #ffffff
+      text-align: center
+      margin-top: 19px
+      margin-bottom: 0
+    &-strong
+      font-family: $main-fonts
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 24px;
+      color: #ffffff
+      text-align: center
+      display: block
+      margin-top: 6px
+
+.form
+  &__wrapper
+    max-width: 350px;
+    margin-left: auto
+    margin-right: auto
+    margin-top: 17px
+  &__input
+    &-wrapper
+      & + &
+        margin-top: 20px
+      &--medium
+        display: flex
+        justify-content: space-between
+    width: 100%
+    height: 50px
+    background-color: white;
+    border: none
+    padding: 0 18px
+    box-sizing: border-box
+    color: #373737;
+    font-family: $main-fonts
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 36px;
+    outline: none
+    @include placeholder
+      color: rgba(#373737, .5)
+
+    &--medium
+      width: calc(50% - 25px)
+
+  &__textarea
+    width: 100%
+    height: 50px
+    background-color: white;
+    border: none
+    padding: 8px 18px
+    height: 111px
+    box-sizing: border-box
+    color: #373737;
+    font-family: $main-fonts
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 36px;
+    resize: none;
+    outline: none
+    @include placeholder
+      color: rgba(#373737, .5)
+
+  &__label
+    display: block
+    width: 100%
+    padding-left: 35px
+    position: relative
+    margin-top: 10px
+    box-sizing: border-box
+    cursor: pointer
+
+    &-text
+      color: white;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 24px;
+
+      &:before
+        content: ''
+        @include size(24px)
+        border: 2px solid #fff
+        box-sizing: border-box
+        position: absolute
+        left: 0
+        top: 0
+
+      &:after
+        content: '';
+        @include size(16px, 12px)
+        position: absolute
+        left: 4px
+        top: 6px
+        background: url('../img/check.png') center no-repeat
+        opacity: 0
+        @include trans(opacity)
+
+  &__checkbox
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    left: 12px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+    &:checked + .form__label-text:after
+      opacity: 1
+
+  &__submit
+    height: 80px;
+    background-color: #d00075;
+    color: white;
+    font-family: $sub-fonts
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 80px
+    padding: 0
+    outline: none
+    display: block
+    width: 100%
+    margin-top: 16px
+    border: none
+    cursor: pointer
+    @include trans(opacity)
+
+    &:hover
+      opacity: .75
+
+    &--large
+      font-size: 36px
+      margin-top: 18px
+
+.main-title
+  margin-top: 200px
+  margin-bottom: 0
+  color: white;
+  font-family: $sub-fonts
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 60px;
+  max-width: 350px
+  position: relative
+  z-index: 1
+
+  &:before
+    content: ''
+    @include size(1391px)
+    position: absolute
+    right: -37px
+    top: -342px
+    background: url('../img/triangle.svg') right bottom no-repeat
+    z-index: -1
+
+.second-title
+  font-family: $sub-fonts
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  text-align: center
+  margin-top: 0
+  margin-bottom: 0
+
+  &--gray
+    color: #2e3750;
+
+  &--white
+    color: #fff
+.usefull
+  padding-top: 89px
+  &__inner
+    @include wrapper
+
+  &__list
+    padding-top: 13px
+    padding-left: 0
+    list-style: none
+    display: flex
+    justify-content: center
+    margin-left: -15px
+    margin-right: -15px
+    flex-wrap: wrap
+    
+  
+  &__item
+    margin-top: 65px
+    color: black;
+    font-family: $main-fonts;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center
+    padding-top: 94px
+    width: calc(33.33% - 100px)
+    margin-left: 50px
+    margin-right: 50px
+    position: relative
+    padding-left: 10px
+    padding-right: 10px
+    box-sizing: border-box
+    &:before
+      content: ''
+      @include size(85px)
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translateX(-50%)
+    
+    &--one:before
+      background: url('../img/useful-1.png') center no-repeat;
+    &--two:before
+      background: url('../img/useful-2.png') center no-repeat;
+    &--three:before
+      background: url('../img/useful-3.png') center no-repeat;
+    &--four:before
+      background: url('../img/useful-4.png') center no-repeat;
+    &--five:before
+      background: url('../img/useful-5.png') center no-repeat;
+    
+.time
+  background-color: #2e3750;
+  margin-top: 92px
+  padding-top: 90px
+  padding-bottom: 87px
+
+  &__inner
+    @include wrapper
+
+  &__wrapper
+    margin-top: 60px
+    display: flex
+    justify-content: center
+  
+  &__when
+    display: flex
+
+  &__item
+    margin-left: 20px
+    margin-right: 20px
+
+    &-number
+      @include size(160px, 165px)
+      background-color: #c2016d;
+      border-radius: 10px;
+      color: #eaeaea;
+      font-family: PFDinTextCompPro;
+      font-size: 200px;
+      line-height: 208px
+      font-weight: 300;
+      text-align: center
+      text-transform: uppercase;
+      display: flex
+      justify-content: center
+      position: relative
+      z-index: 0
+
+      &:before
+        content: ''
+        position: absolute
+        top: 0
+        height: 50%
+        width: 100%
+        left: 0
+        background-color: #d00075;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px
+        z-index: -1
+      &:after
+        content: ''
+        position: absolute
+        top: 50%
+        height: 1px
+        width: 100%
+        left: 0
+        transform: translateY(-50%)
+        background-color: #ad0965;
+
+    &-text
+      color: white;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: center
+      margin-top: 14px
+
+.whom
+  padding-top: 90px
+  padding-bottom: 180px
+  &__inner
+    @include wrapper
+
+  &__list
+    padding: 0
+    margin-top: 94px
+    margin-bottom: 0
+    list-style: none
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+
+  &__item
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center
+    padding-top: 98px
+    width: calc(25% - 40px)
+    margin-left: 20px
+    margin-right: 20px
+    position: relative
+    padding-left: 10px
+    padding-right: 10px
+    box-sizing: border-box
+    &:before
+      content: ''
+      @include size(88px)
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translateX(-50%)
+    &--one:before
+      background: url('../img/whom-1.png') center no-repeat
+    &--two:before
+      background: url('../img/whom-2.png') center no-repeat
+    &--three:before
+      background: url('../img/whom-3.png') center no-repeat
+
+
+.place
+  background-color: #efefef;
+  padding-top: 82px
+  padding-bottom: 20px
+  &__inner
+    @include wrapper
+
+  .db
+    margin-bottom: 4px
+
+  &__list
+    padding-left: 0
+    padding-right: 0
+    padding-top: 58px
+    margin-bottom: 0
+    list-style: none
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+  &__item
+    width: calc(33.33% - 40px)
+    margin-left: 10px
+    margin-right: 10px
+    position: relative
+    text-align: center
+    min-width: 170px;
+    padding-top: 193px
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 48px;
+    margin-bottom: 80px
+
+    &:before
+      content: '';
+      @include size(170px)
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translateX(-50%)
+      background: #000
+      border-radius: 100%;
+
+    &--one:before
+      @include bg(cafe, png)
+    &--two:before
+      @include bg(home, png)
+    &--three:before
+      @include bg(frends, png)
+    &--four:before
+      @include bg(work, png)
+    &--five:before
+      @include bg(nature, png)
+    &--six:before
+      @include bg(auto, png)
+    
+
+.speaker
+  background-color: #2e3750;
+
+  &__inner
+    @include wrapper
+    padding-top: 92px
+    padding-bottom: 123px
+    position: relative
+
+    &:before
+      content: ''
+      @include size(900px, 816px)
+      position: absolute
+      left: 55%
+      bottom: 0
+      @include bgcl(woman, png)
+      background-repeat: no-repeat
+      background-position: right bottom
+    
+  &__video
+    &-wrapper
+      margin-top: 130px 
+      display: flex
+    &-inner
+      width: 370px  
+      margin-right: 64px
+    &-title
+      margin: 0
+      color: white;
+      font-family: $sub-fonts
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 30px;
+    &-container
+      margin-top: 25px
+      height: 278px;
+      @include bg(video, jpg)
+      border-radius: 10px;
+      position: relative
+      cursor: pointer
+
+      &:before
+        content: '';
+        @include size(60px, 42px)
+        position: absolute
+        opacity: .75
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        background: url('../img/youtube-icon.png') center no-repeat
+    &-info
+      width: calc(100% - 710px)
+      &-name
+        color: white;
+        font-family: $main-fonts
+        font-size: 30px;
+        line-height: 36px;
+        font-weight: 800
+      &-position
+        color: white;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 24px;
+        margin-top: 14px
+      &-list
+        list-style: none;
+        padding: 0
+        margin-top: 22px
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 24px;
+        color: #fff
+
+      &-item
+        & + &
+          margin-top: 21px
+      
+        position: relative
+        &:before
+          content: '';
+          @include size(16px, 12px)
+          position: absolute
+          left: -32px
+          top: 6px
+          background: url('../img/check.png') center no-repeat
+
+.develop
+  &__wrapper
+    @include wrapper
+    display: flex
+    box-sizing: border-box
+    padding-top: 125px
+    
+  &__inner
+    max-width: 600px;
+    margin-left: auto
+    width: 100%
+  &__title
+    text-align: left
+  &__subtitle
+    color: #d00075;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -1px
+    margin-top: 16px
+  &__list
+    margin-top: 59px
+    margin-bottom: 0
+    padding: 0
+    list-style: none
+  &__item
+    color: black;
+    padding-left: 33px
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    position: relative
+
+    &:before
+      content: ''
+      @include size(16px, 12px)
+      position: absolute
+      left: 1px
+      top: 6px
+      background: url('../img/check-color.png') center no-repeat;
+
+    & + &
+      margin-top: 21px
+
+  &__web
+    background-color: #d00075;
+    margin-top: 139px
+    &-wrapper
+      @include wrapper
+      display: flex
+      box-sizing: border-box
+      position: relative
+
+      &:before
+        content: '';
+        width: 437px;
+        height: 831px;
+        position: absolute
+        left: 85px
+        bottom: 0
+        @include bg(man, png)
+      
+    &-inner
+      max-width: 600px;
+      margin-left: auto
+      width: 100%
+      padding-top: 48px
+      padding-bottom: 44px
+
+    &-subtitle
+      color: white;
+      font-size: 18px;
+      font-weight: 700
+      letter-spacing: 1px
+    &-title
+      color: white;
+      font-family: $sub-fonts;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 60px;
+      margin-top: 3px
+      margin-bottom: 0
+
+.bonus-form
+  @include bg(last-bg, jpg)
+  background-size: cover;
+  padding-top: 75px
+  padding-bottom: 50px
+  position: relative
+
+  &:before
+    content: '';
+    position: absolute
+    bottom: 0
+    left: 50%
+    transform: translateX(-50%)
+    @include size(1897px, 75px)
+    @include bg(table, png)
+    z-index: 0
+    
+  &__inner
+    @include wrapper
+    padding-left: 0
+    padding-right: 0
+    &:after
+      content: '';
+      position: absolute
+      left: -320px;
+      z-index: 2
+      bottom: 0
+      @include size(761px, 439px)
+      background: url('../img/last-triangle.svg') bottom right no-repeat
+      pointer-events: none
+  &__title-color
+    color: #d00075;
+    font-family: $main-fonts
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: 1px
+
+  &__wrapper
+    position: relative
+    z-index: 1
+    @include bg(mac, png)
+    background-size: contain
+    margin-top: 66px
+    padding-top: 77px
+    padding-bottom: 126px
+  &__form
+    max-width: 470px;
+    margin-left: auto
+    margin-right: auto
+
+    &-title
+      color: white;
+      font-family: PFDinTextCompPro;
+      font-size: 60px;
+      font-weight: 300;
+      line-height: 60px;
+      text-transform: uppercase;
+      margin-top: 0
+      text-align: center
+      margin-bottom: 0
+
+    &-inner
+      margin-top: 41px
