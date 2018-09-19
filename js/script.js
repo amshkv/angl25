@@ -62,6 +62,10 @@ function declText(number, titles) {
   ];
 }
 
-if (navigator.appVersion.indexOf('Mac') != -1) {
+if (
+  navigator.appVersion.indexOf('Mac') != -1 ||
+  navigator.appVersion.indexOf('X11') != -1 ||
+  navigator.appVersion.indexOf('Linux') != -1
+) {
   $('.time__item-number').addClass('macOs');
 }
