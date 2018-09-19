@@ -817,6 +817,11 @@
   background: url("../img/youtube-icon.png") center no-repeat;
 }
 
+.speaker__video-container iframe {
+  position: relative;
+  z-index: 2;
+}
+
 .speaker__video-info {
   width: calc(100% - 710px);
 }
