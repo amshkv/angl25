@@ -22,7 +22,7 @@ function timer() {
   var achiveDate = new Date(2018, 8, 25, 20, 0, 0); //Задаем дату, к которой будет осуществляться обратный отсчет
   var result = achiveDate - nowDate + 1000;
   if (result < 0) {
-    $('.time').hide();
+    return undefined;
   }
   var seconds = Math.floor((result / 1000) % 60);
   var minutes = Math.floor((result / 1000 / 60) % 60);
