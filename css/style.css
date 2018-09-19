@@ -448,6 +448,17 @@
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.usefull__item:hover:before {
+  -webkit-transform: translateX(-50%) scale(1.1);
+  -ms-transform: translateX(-50%) scale(1.1);
+  transform: translateX(-50%) scale(1.1);
 }
 
 .usefull__item--one:before {
@@ -619,6 +630,17 @@
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.whom__item:hover:before {
+  -webkit-transform: translateX(-50%) scale(1.1);
+  -ms-transform: translateX(-50%) scale(1.1);
+  transform: translateX(-50%) scale(1.1);
 }
 
 .whom__item--one:before {

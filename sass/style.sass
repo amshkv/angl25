@@ -312,6 +312,11 @@ $sub-fonts: Gilroy, sans-serif;
       top: 0
       left: 50%
       transform: translateX(-50%)
+      @include trans(transform)
+
+    &:hover:before
+      transform: translateX(-50%) scale(1.1)
+
     
     &--one:before
       background: url('../img/useful-1.png') center no-repeat;
@@ -418,6 +423,7 @@ $sub-fonts: Gilroy, sans-serif;
     padding-left: 10px
     padding-right: 10px
     box-sizing: border-box
+    
     &:before
       content: ''
       @include size(88px)
@@ -425,6 +431,11 @@ $sub-fonts: Gilroy, sans-serif;
       top: 0
       left: 50%
       transform: translateX(-50%)
+      @include trans(transform)
+
+    &:hover:before
+      transform: translateX(-50%) scale(1.1)
+      
     &--one:before
       background: url('../img/whom-1.png') center no-repeat
     &--two:before
